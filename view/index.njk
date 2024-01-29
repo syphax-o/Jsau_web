@@ -1,0 +1,36 @@
+<html>
+<head>
+{% block css %}
+  <link rel="stylesheet" href="style.css"/>
+{% endblock %}
+
+</head>
+<body>
+<h1>Chat</h1>
+
+<ul>
+  {% for message in m %}
+    <li>{{ message.user_ID }} : {{ message.text }}</li>
+  {% else %}
+    <li>Aucun message disponible</li>
+  {% endfor %}
+</ul>
+
+<form action="/messages" method="post">
+  <ul>
+    <li>
+      <label for="name">Nom&nbsp;:</label>
+      <input type="text" id="name" name="user_name" />
+    </li>
+
+    <li>
+      <label for="msg">Message&nbsp;:</label>
+      <textarea id="msg" name="user_message"></textarea>
+    </li>
+  </ul>
+<div class="button">
+  <button type="submit">Envoyer le message</button>
+</div>
+</form>
+</body>
+</html>
